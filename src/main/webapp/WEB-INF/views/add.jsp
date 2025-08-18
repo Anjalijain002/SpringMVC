@@ -5,76 +5,55 @@
 <!doctype html>
 <html lang="en">
 <head>
-<!-- Required meta tags -->
-<meta charset="utf-8">
-<meta name="viewport
-	content=" width=device-width, initial-scale=1,
-	shrink-to-fit=no">
-
-<!-- Bootstrap CSS -->
-<link rel="stylesheet"
-	href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-	crossorigin="anonymous">
-
-<title>Add Student</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Add Student</title>
+    <style>
+        body { font-family: sans-serif; background-color: #f4f4f4; margin: 0; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+        .container { background-color: #fff; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); width: 100%; max-width: 500px; }
+        h2 { text-align: center; color: #333; margin-bottom: 2rem; }
+        .form-group { margin-bottom: 1rem; }
+        label { display: block; margin-bottom: 0.5rem; font-weight: bold; }
+        input[type="text"] { width: 100%; padding: 0.75rem; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+        .btn-success { display: block; width: 100%; padding: 0.75rem; border: none; border-radius: 4px; background-color: #28a745; color: white; font-size: 1rem; cursor: pointer; transition: background-color 0.3s ease; }
+        .btn-success:hover { background-color: #218838; }
+        .back-link { display: block; text-align: center; margin-top: 1.5rem; color: #007bff; text-decoration: none; }
+        .back-link:hover { text-decoration: underline; }
+    </style>
 </head>
 <body>
-<h2 style=color:red;>Add Page</h2>
-
-	<div class="container mt-5">
-
-		<form action="addstudent" method="post">
-
-			<div class="form-group">
-				<label for="id">Id</label> <input type="text"
-					class="form-control" id="id" aria-describedby="emailHelp"
-					placeholder="Enter Id" name="id">
-			</div>
-
-			<div class="form-group">
-				<label for="name">Student Name</label> <input type="text"
-					class="form-control" id="userName" aria-describedby="emailHelp"
-					placeholder="Enter Name" name="name">
-			</div>
-
-			<div class="form-group">
-				<label for="english">English Marks</label> <input type="text"
-					class="form-control" id="exampleInputEmail1"
-					aria-describedby="emailHelp" placeholder="Enter Marks"
-					name="english">
-			</div>
-
-			<div class="form-group">
-				<label for="hinid">Hindi Marks</label> <input type="text"
-					class="form-control" id="exampleInputEmail1"
-					aria-describedby="emailHelp" placeholder="Enter Marks" name="hindi">
-			</div>
-
-			<div class="form-group">
-				<label for="maths">Maths Marks</label> <input type="text"
-					class="form-control" id="exampleInputEmail1"
-					aria-describedby="emailHelp" placeholder="Enter Marks" name="maths">
-			</div>
-			<div class="form-group">
-				<label for="computer">Computer Marks</label> <input type="text"
-					class="form-control" id="exampleInputEmail1"
-					aria-describedby="emailHelp" placeholder="Enter Marks"
-					name="computer">
-			</div>
-
-			<div class="form-group text-center">
-				<button type="submit" class="btn btn-success">Submit</button>
-
-			</div>
-
-			<div class="container text-center">
-				<a  href="home" role="button">Back To
-					Home Page</a>
-			</div>
-
-		</form>
-	</div>
-
+    <div class="container">
+        <h2>Add Student</h2>
+        <form action="addstudent" method="post">
+            <div class="form-group">
+                <label for="id">Id</label>
+                <input type="text" id="id" placeholder="Enter Id" name="id">
+            </div>
+            <div class="form-group">
+                <label for="name">Student Name</label>
+                <input type="text" id="userName" placeholder="Enter Name" name="name">
+            </div>
+            <div class="form-group">
+                <label for="english">English Marks</label>
+                <input type="text" id="exampleInputEmail1" placeholder="Enter Marks" name="english">
+            </div>
+            <div class="form-group">
+                <label for="hindi">Hindi Marks</label>
+                <input type="text" id="exampleInputEmail1" placeholder="Enter Marks" name="hindi">
+            </div>
+            <div class="form-group">
+                <label for="maths">Maths Marks</label>
+                <input type="text" id="exampleInputEmail1" placeholder="Enter Marks" name="maths">
+            </div>
+            <div class="form-group">
+                <label for="computer">Computer Marks</label>
+                <input type="text" id="exampleInputEmail1" placeholder="Enter Marks" name="computer">
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn-success">Submit</button>
+            </div>
+        </form>
+        <a class="back-link" href="home">Back To Home Page</a>
+    </div>
 </body>
 </html>

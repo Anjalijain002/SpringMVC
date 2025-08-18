@@ -80,5 +80,10 @@ public class LoginController {
 		
 		return "success";
 	}
+	
+	@RequestMapping("/home")
+	public String homehome(){
+		return "home";
+	}
 
 }
