@@ -80,7 +80,7 @@ button.btn-primary:hover {
         </div>
         <div class="container action-link">
             <h5>Update Student</h5>
-            <a class="btn-primary" href="update">Update</a>
+            <a class="btn-primary" href="UpdateStudent">Update</a>
         </div>
         <div class="container action-link">
             <h5>Delete Student</h5>
