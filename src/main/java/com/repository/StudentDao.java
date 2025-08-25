@@ -30,6 +30,12 @@ public class StudentDao {
 		return 1;
 		
 	}
+	// New method to get a single student by roll number
+	public Student getStudentByRollNumber(int id) {
+		String hql = "FROM Student WHERE id = ?0";
+		List<Student> students = (List<Student>) hibernateTemplate.find(hql, id);
+		return students.isEmpty() ? null : students.get(0);
+	}
 	@Transactional
 	public int deleteStudent(Student student){
 		this.hibernateTemplate.delete(student);

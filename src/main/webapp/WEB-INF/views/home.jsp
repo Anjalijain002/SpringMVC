@@ -1,101 +1,125 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-
+    pageEncoding="ISO-8859-1"%>
 <%@page isELIgnored="false"%>
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Home Page</title>
+    <title>Admin Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
+            background: #f4f6f9;
             font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #e3f2fd, #ffffff);
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            min-height: 100vh;
-            padding: 2rem 1rem;
         }
-        .wrapper {
-    max-width: 320px;   /* narrower column */
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;          /* smaller gap */
-}
-
-.container {
-    background: #fff;
-    padding: 1rem 1rem;  /* reduced padding */
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.08);
-    text-align: center;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.container:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 12px rgba(0,0,0,0.12);
-}
-
-h5 {
-    color: #333;
-    font-size: 1rem;   /* smaller title */
-    margin-bottom: 0.75rem;
-}
-
-.btn-primary, 
-button.btn-primary {
-    display: block;
-    width: 100%;
-    padding: 0.5rem;   /* smaller button height */
-    border: none;
-    border-radius: 6px;
-    background: linear-gradient(135deg, #007bff, #0056b3);
-    color: #fff;
-    text-decoration: none;
-    font-size: 0.9rem;  /* slightly smaller text */
-    font-weight: 500;
-    cursor: pointer;
-    text-align: center;
-    box-sizing: border-box;
-    transition: background 0.3s ease;
-}
-
-.btn-primary:hover, 
-button.btn-primary:hover {
-    background: linear-gradient(135deg, #0056b3, #003f7f);
-}
-        
+        .hero-section {
+            background: linear-gradient(135deg, #007bff, #0056b3);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            border-radius: 0 0 40px 40px;
+            margin-bottom: 2rem;
+        }
+        .hero-section h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+        .card {
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: none;
+            border-radius: 12px;
+        }
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+        .btn-custom {
+            background: linear-gradient(135deg, #007bff, #0056b3);
+            color: white;
+            border: none;
+        }
+        .btn-custom:hover {
+            background: linear-gradient(135deg, #0056b3, #003f7f);
+        }
     </style>
 </head>
 <body>
-    <div class="wrapper">
-        <div class="container action-link">
-            <h5>Add Student</h5>
-            <a class="btn-primary" href="add1">Add</a>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="#">Admin Panel</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="profile">Profile</a></li>
+                    <li class="nav-item"><a class="nav-link" href="settings">Settings</a></li>
+                    <li class="nav-item"><a class="nav-link text-danger" href="/">Logout</a></li>
+                </ul>
+            </div>
         </div>
-        <div class="container action-link">
-            <h5>Update Student</h5>
-            <a class="btn-primary" href="update">Update</a>
-        </div>
-        <div class="container action-link">
-            <h5>Delete Student</h5>
-            <a class="btn-primary" href="delete">Delete</a>
-        </div>
-        <div class="container action-link">
-            <h5>Search Student</h5>
-            <a class="btn-primary" href="search">Search</a>
-        </div>
-        <div class="container">
-            <h5>All Student</h5>
-            <form action="allStudent" method="post">
-                <button type="submit" class="btn-primary">All Student</button>
-            </form>
+    </nav>
+
+    <!-- Hero / Landing -->
+    <section class="hero-section">
+        <h1>Welcome, Admin</h1>
+        <p class="lead">Manage students efficiently with your admin dashboard.</p>
+    </section>
+
+    <!-- Dashboard Content -->
+    <div class="container my-5">
+        <div class="row g-4">
+
+            <div class="col-md-4">
+                <div class="card text-center p-3">
+                    <h5>Add Student</h5>
+                    <a href="add1" class="btn btn-custom mt-2">Add</a>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card text-center p-3">
+                    <h5>Update Student</h5>
+                    <a href="UpdateStudent" class="btn btn-custom mt-2">Update</a>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card text-center p-3">
+                    <h5>Delete Student</h5>
+                    <a href="delete" class="btn btn-custom mt-2">Delete</a>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card text-center p-3">
+                    <h5>Search Student</h5>
+                    <a href="search" class="btn btn-custom mt-2">Search</a>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card text-center p-3">
+                    <h5>All Students</h5>
+                    <form action="allStudent" method="post">
+                        <button type="submit" class="btn btn-custom mt-2">View</button>
+                    </form>
+                </div>
+            </div>
+
         </div>
     </div>
+
+    <!-- Footer -->
+    <footer class="text-center py-3 bg-light mt-auto border-top">
+        <p class="mb-0">© 2025 Student Management System | Admin Dashboard</p>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

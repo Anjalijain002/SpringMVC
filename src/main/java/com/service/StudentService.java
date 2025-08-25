@@ -22,6 +22,18 @@ public class StudentService {
 		return this.studentDao.updateStudent(student);
 	}
 	
+	
+	// New method to get a single student by roll number
+	public Student getStudentByRollNumber(int id) {
+		return this.studentDao.getStudentByRollNumber(id);
+	}
+	
+	// New method to update a student
+	public void updateStudent(Student student) {
+		this.studentDao.updateStudent(student);
+	}
+
+	
 	public int delete(Student student){
 		return this.studentDao.deleteStudent(student);
 	}

@@ -65,6 +65,10 @@ public class LoginController {
 		return "searchStudentById";
 		
 	}
+	@RequestMapping("/UpdateStudent")
+	public String updateStudentPage() {
+		return "updateStudentInput"; // A new JSP where user enters roll number to update
+	}
 	
 	@RequestMapping("/studentView")
 	public String returnHomePage(){
@@ -77,7 +81,7 @@ public class LoginController {
 	@RequestMapping("/processform")
 	public String success(@ModelAttribute User user, Model model){
 		this.userService.createUser(user);
-		
+		model.addAttribute("msg","Succesfull account created");
 		return "success";
 	}
 	

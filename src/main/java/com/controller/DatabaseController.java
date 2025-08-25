@@ -61,15 +61,51 @@ public class DatabaseController {
 	@RequestMapping(path="/addstudent",method=RequestMethod.POST)
 	public String addStudent(@ModelAttribute Student student, Model model){
 	      this.studentService.createStudent(student);
-	      return "update";
+	      return "addstudentsuccess";
 	}
 	
-	@RequestMapping(path="/update" , method=RequestMethod.POST)
+/*	@RequestMapping(path="/update" , method=RequestMethod.POST)
 	public String updateStudent(@ModelAttribute Student student , Model model){
 		this.studentService.update(student);
 		return "update";
-	}
+	}*/
 	
+				// New mapping to show the update form with existing data
+						@RequestMapping(value = "/showUpdateStudentForm", method = RequestMethod.GET)
+						public String showUpdateStudentForm(@RequestParam("id") int id, Model model) {
+							Student student = studentService.getStudentByRollNumber(id);
+							if (student != null) {
+								model.addAttribute("student", student);
+								return "updateStudent"; // JSP page to display the update form
+							} else {
+								model.addAttribute("message", "Student with Roll Number " + id + " not found for update.");
+								return "studentNotFound"; // Redirect to a not found page
+							}
+						}
+						
+						// New mapping to handle the actual update submission
+						@RequestMapping(value = "/updateStudentDetails", method = RequestMethod.POST)
+						public String updateStudent(@ModelAttribute Student student, Model model) {
+							// First, get the existing student to retain the 'id' which is @Id and auto-generated
+							Student existingStudent = studentService.getStudentByRollNumber(student.getId());
+			
+							if (existingStudent != null) {
+								// Update the mutable fields from the form submission to the existing student
+								existingStudent.setName(student.getName());
+								existingStudent.setHindi(student.getHindi());
+								existingStudent.setEnglish(student.getEnglish());
+								existingStudent.setMaths(student.getMaths());
+								existingStudent.setComputer(student.getComputer());
+								
+								studentService.updateStudent(existingStudent); // Pass the updated existing student
+								model.addAttribute("message", "Student details updated successfully for Roll Number: " + student.getId());
+								return "updateStudentSuccess"; // JSP for success message
+							} else {
+								model.addAttribute("message", "Student with Roll Number " + student.getId() + " not found for update.");
+								return "studentNotFound"; // JSP for not found message
+							}
+						}
+				
 	@RequestMapping(path="/delete", method=RequestMethod.POST)
 	public String deleteStudent(@ModelAttribute Student student, Model model){
 		this.studentService.delete(student);
