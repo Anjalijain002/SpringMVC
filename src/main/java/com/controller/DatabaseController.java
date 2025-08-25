@@ -132,7 +132,6 @@ public class DatabaseController {
 			// Populate data rows
 			int rowNum = 1;
 			createCell(sheet.createRow(rowNum++), "Student ID", String.valueOf(student.getId()));
-		//	createCell(sheet.createRow(rowNum++), "Roll Number", String.valueOf(student.getStudentRollNumber()));
 			createCell(sheet.createRow(rowNum++), "Student Name", student.getName());
 		
 			// Marks
@@ -142,7 +141,6 @@ public class DatabaseController {
 			createCell(sheet.createRow(rowNum++), "English", String.valueOf(student.getEnglish()));
 			createCell(sheet.createRow(rowNum++), "Maths", String.valueOf(student.getMaths()));
 			createCell(sheet.createRow(rowNum++), "Computer", String.valueOf(student.getComputer()));
-			//createCell(sheet.createRow(rowNum++), "Mathematics", String.valueOf(student.getMathematics()));
 		
 			// Total and Percentage
 			int totalMarks = student.getHindi() + student.getEnglish() + student.getMaths() + student.getComputer();
